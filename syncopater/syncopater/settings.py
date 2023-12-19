@@ -21,11 +21,15 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3gqn=*_5r453-ne6@w%z9u@-))ey1s4bw1)_1_--hab*a16&n%'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG is True:
+    SECRET_KEY = 'django-insecure-3gqn=*_5r453-ne6@w%z9u@-))ey1s4bw1)_1_--hab*a16&n%'
+else:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 ALLOWED_HOSTS = []
 
