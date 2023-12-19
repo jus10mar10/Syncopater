@@ -19,7 +19,7 @@ def auth_token(code):
     token_data = {
         "grant_type": "authorization_code",
         "code": code,
-        "redirect_uri": "http://localhost:8080/spotify/callback"
+        "redirect_uri": "https://www.syncopater.com/spotify/auth_code/"
     }
 
     r = requests.post("https://accounts.spotify.com/api/token", data=token_data, headers=token_headers)

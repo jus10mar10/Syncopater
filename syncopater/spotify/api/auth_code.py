@@ -8,7 +8,7 @@ def get_auth_code():
     auth_headers = {
         "client_id": client_id,
         "response_type": "code",
-        "redirect_uri": "http://localhost:8080/spotify/callback",
+        "redirect_uri": "https://www.syncopater.com/spotify/auth_code/",
         "scope": "user-library-read"
     }
 
