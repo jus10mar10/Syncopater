@@ -6,7 +6,7 @@ from .api.auth_token import auth_token
 
 def auth_code(request):
     get_auth_code()
-    return
+    return render(request, 'test.html', {'json': 'auth code'})
 
 #spotify callback
 def callback(request):
