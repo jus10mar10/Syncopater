@@ -1,6 +1,7 @@
 import base64
 import requests
 from .utils import get_secrets
+from django.conf import settings
 
 def auth_token(code):
 
@@ -19,7 +20,7 @@ def auth_token(code):
     token_data = {
         "grant_type": "authorization_code",
         "code": code,
-        "redirect_uri": "https://www.syncopater.com/spotify/auth_code/"
+        "redirect_uri": f"{settings.BASE_URL}/spotify/callback/",
     }
 
     r = requests.post("https://accounts.spotify.com/api/token", data=token_data, headers=token_headers)
