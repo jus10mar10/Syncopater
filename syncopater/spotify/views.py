@@ -9,6 +9,7 @@ def auth_code(request):
         return redirect('test')
     elif request.session.get('access_token') is None:
         get_auth_code()
+        return HttpResponse(status=204)
     else:
         return render(request, 'test.html', {'json': 'auth code failed... sad face :('})
 
