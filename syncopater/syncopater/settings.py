@@ -25,7 +25,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG').lower() == 'true'
+DEBUG = os.environ.get('DEBUG') == 'true'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG is True:
