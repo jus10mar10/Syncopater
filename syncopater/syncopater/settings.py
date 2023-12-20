@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+    
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +25,13 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', default=False)
+DEBUG = os.environ.get('DEBUG').lower() == 'true'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG is True:
-    SECRET_KEY = 'django-insecure-3gqn=*_5r453-ne6@w%z9u@-))ey1s4bw1)_1_--hab*a16&n%'
     BASE_URL = "http://localhost:8000"
+    SECRET_KEY = 'django-insecure-3gqn=*_5r453-ne6@w%z9u@-))ey1s4bw1)_1_--hab*a16&n%'
+
 else:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     BASE_URL = "https://syncopater.com"
